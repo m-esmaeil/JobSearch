@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="navbar-nav">
+        <li class="nav-item"><i class="fas fa-heading"></i>
+            <a class="nav-link d-inline-block" href="@Url.Action("Index", "Manage")"> اهلا بك : @User.Identity.GetUserName() !
+              @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!",
+             "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+            </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
+            <i class="fas fa-sign-out-alt"></i> تسجيل الخروج </a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Register", "Account")" id="registerLink">
+            <i class="fas fa-sign-in-alt"></i> مستخدم جديد </a>
+            
+            @*@Html.ActionLink("مستخدم جديد", "Register", "Account", routeValues: null,
+              htmlAttributes: new { id = "registerLink", @class="nav-link m-0"})*@
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Login", "Account")" id="loginLink">
+            <i class="fas fa-sign-out-alt"></i> تسجيل الدخول </a>
+                @*@Html.ActionLink("تسجيل الدخول", "Login", "Account", routeValues: null,
+                             htmlAttributes: new { id = "loginLink", @class="nav-link" })*@
+        </li>
+    </ul>
+}

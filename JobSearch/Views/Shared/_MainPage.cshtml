@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/all.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body class="p-0 m-0" dir="rtl">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow">
+        <!-- Collapse Button of navbar -->
+        <button class="navbar-toggler" type="button" data-target="#mynavbar" data-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img class="rounded-circle" src="~/Images/jobs1.jpg" alt="Alternate Text" style="width:40px;" />
+        </a>
+        <!-- body of nabvar-->
+        <div class="collapse navbar-collapse d-flex" id="mynavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Home/Index"><i class="fas fa-home"></i> الصفحة الرئيسية </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Jobs/Index"><i class="fab fa-stack-overflow"></i> صفحة الوظائف </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-phone"></i> اتصل بنا </a>
+                </li>
+            </ul>
+            <!-- make partial Log in -->
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+
+    <script src="~/Scripts/all.js"></script>>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
